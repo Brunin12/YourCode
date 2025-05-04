@@ -29,8 +29,7 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary: #E60076
-  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: #e60076 --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
@@ -43,6 +42,14 @@
 @layer utilities {
   .heading {
     @apply uppercase bg-black px-6 py-3 font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+  }
+
+  .tag {
+    @apply bg-yellow-400 text-black px-6 py-3 font-bold rounded-sm uppercase relative before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
+  }
+
+  .startup-category-tag {
+    @apply font-medium text-[16px] bg-pink-100 px-4 py-2 rounded-full;
   }
 
   .pink_container {
@@ -98,7 +105,7 @@
   }
 
   .profile_card {
-    @apply w-80 px-6 pb-6 pt-20 flex flex-col justify-center items-center bg-primary border-[5px] border-black shadow-black rounded-[30px] relative z-0 h-fit max-lg:w-full;
+    @apply w-80 px-6 pb-6 pt-20 flex flex-col justify-center items-center bg-[#E60076] border-[5px] border-black shadow-black rounded-[30px] relative z-0 h-fit max-lg:w-full;
   }
 
   .profile_title {
@@ -138,15 +145,15 @@
   }
 
   .startup-form_label {
-    @apply font-bold text-[18px] text-black uppercase;
+    @apply font-extrabold text-[18px] text-black uppercase;
   }
 
   .startup-form_input {
-    @apply border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-3 placeholder:text-black;
+    @apply border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-3 placeholder:text-gray-400;
   }
 
   .startup-form_textarea {
-    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-black;
+    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-gray-400;
   }
 
   .startup-form_error {
@@ -158,20 +165,24 @@
   }
 
   .startup-form_btn {
-    @apply bg-primary border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px];
+    @apply bg-[#E60076] border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] hover:bg-pink-700 transition-all duration-500;
   }
 
   /* view */
-  .view-container {
+  .views-container {
     @apply flex justify-end items-center mt-5 fixed bottom-3 right-3;
   }
 
-  .view-text {
-    @apply font-medium text-[16px] bg-primary px-4 py-2 rounded-lg capitalize;
+  .views_skeleton {
+    @apply bg-zinc-400 h-10 w-24 rounded-lg fixed bottom-3 right-3;
+  }
+
+  .views-text {
+    @apply font-bold text-[16px] bg-[#e600772a] px-4 py-2 rounded-lg capitalize;
   }
 
   .category-tag {
-    @apply font-medium text-[16px] bg-primary px-4 py-2 rounded-full;
+    @apply font-medium text-[16px] bg-[#E60076] px-4 py-2 rounded-full;
   }
 
   /* idea details */

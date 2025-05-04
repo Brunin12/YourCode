@@ -3,6 +3,8 @@ import StartupCard from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { StartupTypeCard } from "@/components/StartupCard";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function Home({
   searchParams,
@@ -11,6 +13,7 @@ export default async function Home({
 }) {
   const query = (await searchParams).query;
   const params = { search: query || null };
+
   const { data: startups } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
   return (
@@ -35,7 +38,9 @@ export default async function Home({
         <ul className="mt-7 card_grid">
           {startups?.length > 0 ? (
             startups.map((startup: StartupTypeCard) => (
-              <StartupCard key={startup?._id} startup={startup} />
+              <Suspense fallback={<Skeleton />}>
+                <StartupCard key={startup?._id} startup={startup} />
+              </Suspense>
             ))
           ) : (
             <p className="no-results">
