@@ -106,6 +106,16 @@
 
   .profile_card {
     @apply w-80 px-6 pb-6 pt-20 flex flex-col justify-center items-center bg-[#E60076] border-[5px] border-black shadow-black rounded-[30px] relative z-0 h-fit max-lg:w-full;
+    background-image: linear-gradient(
+      to right,
+      transparent 49.5%,
+      rgba(251, 232, 67, 0.2) 49.5%,
+      rgba(251, 232, 67, 0.6) 50.5%,
+      transparent 50.5%
+    );
+    background-size: 5% 100%;
+    background-position: center;
+    background-repeat: repeat-x;
   }
 
   .profile_title {
@@ -237,6 +247,10 @@
 
   .text-16-medium {
     @apply font-medium text-[16px] text-black;
+  }
+
+  .text-14-normal {
+    @apply font-normal text-[14px] text-white;
   }
 }
 
